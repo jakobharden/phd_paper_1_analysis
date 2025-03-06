@@ -139,8 +139,8 @@ home
                 └── *.oct    
 ```
 
-  > [!NOTE]
-  > *7-zip* is available online. [7-zip download](https://www.7-zip.org/download.html)
+> [!NOTE]
+> *7-zip* is available online. [7-zip download](https://www.7-zip.org/download.html)
 
 
 ### Analysis script installation
@@ -215,8 +215,8 @@ The referenced datasets are compiled from raw data using a dataset compilation t
 
 - Harden, J. (2025) "Ultrasonic Pulse Transmission Tests: Data set compiler (1.2)". Graz University of Technology. doi: [10.3217/bcydt-6ta35](https://doi.org/10.3217/bcydt-6ta35)
 
-  > [!NOTE]
-  > *Dataset Compiler* is also available on **GitHub**. [Dataset Compiler](https://github.com/jakobharden/phd_dataset_compiler)
+> [!NOTE]
+> *Dataset Compiler* is also available on **GitHub**. [Dataset Compiler](https://github.com/jakobharden/phd_dataset_compiler)
 
 
 ### Dataset Exporter, version 1.1:
@@ -225,8 +225,8 @@ The referenced datasets are compiled from raw data using a dataset compilation t
 
 - Harden, J. (2025) "Ultrasonic Pulse Transmission Tests: Dataset Exporter (1.1)". Graz University of Technology. doi: [10.3217/d3p6m-w7d64](https://doi.org/10.3217/d3p6m-w7d64)
 
-  > [!NOTE]
-  > *Dataset Exporter* is also available on **GitHub**. [Dataset Exporter](https://github.com/jakobharden/phd_dataset_exporter)
+> [!NOTE]
+> *Dataset Exporter* is also available on **GitHub**. [Dataset Exporter](https://github.com/jakobharden/phd_dataset_exporter)
 
 
 ### Dataset Viewer, version 1.0:
@@ -235,8 +235,8 @@ The referenced datasets are compiled from raw data using a dataset compilation t
 
 - Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Dataset Viewer (1.0)". Graz University of Technology. doi: [10.3217/c1ccn-8m982](https://doi.org/10.3217/c1ccn-8m982)
 
-  > [!NOTE]
-  > *Dataset Viewer* is also available on **GitHub**. [Dataset Viewer](https://github.com/jakobharden/phd_dataset_viewer)
+> [!NOTE]
+> *Dataset Viewer* is also available on **GitHub**. [Dataset Viewer](https://github.com/jakobharden/phd_dataset_viewer)
 
 
 ## Revision and release history
