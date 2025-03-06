@@ -244,7 +244,7 @@ The referenced datasets are compiled from raw data using a dataset compilation t
 ### 2025-03-07, version 1.0.0
 
 - published/released version 1.0.0, by Jakob Harden   
-- repository: [TU Graz Repository](https://repository.tugraz.at/)   
+- repository: [TU Graz Repository](http://doi.org/10.17616/R31NJMYL)   
 - doi: [10.3217/xmrmb-5ap42](https://doi.org/10.3217/xmrmb-5ap42)   
-- GitHub: [Repository](https://github.com/jakobharden/phd_paper_1_analysis)
+- GitHub: [Repository](https://github.com/jakobharden/phd_paper_1_analysis)   
 
