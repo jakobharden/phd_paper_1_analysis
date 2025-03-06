@@ -1,0 +1,268 @@
+<h1>Source code for: Experimental study on cement paste using the ultrasonic pulse transmission method</h1>
+
+<h2>Abstract</h2>
+
+<p>This file describes how to reproduce the analysis results presented in section <em>Technical Validation</em> of the accompanying manuscript titled: <strong>Experimental study on cement paste using the ultrasonic pulse transmission method</strong>.</p>
+
+<h2>Table of contents</h2>
+
+<ul>
+<li><a href="#license">License</a></li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#directory-and-file-structure">Directory and file structure</a></li>
+<li><a href="#installation-instructions">Installation instructions</a></li>
+<li><a href="#usage-instructions">Usage instructions</a></li>
+<li><a href="#help-and-documentation">Help and Documentation</a></li>
+<li><a href="#related-data-sources">Related data sources</a></li>
+<li><a href="#related-software">Related software</a></li>
+<li><a href="#revision-and-release-history">Revision and release history</a></li>
+</ul>
+
+<h2>License</h2>
+
+<p>Copyright 2025 Jakob Harden (jakob.harden@tugraz.at, Graz University of Technology, Graz, Austria)</p>
+
+<p>This file is part of the PhD thesis of Jakob Harden.</p>
+
+<p>All GNU Octave function files (*.m) and the file <em>/tex/oct2texdefs.tex</em> are licensed under the <em>MIT</em> license. See also licence information file "LICENSE".</p>
+
+<p>All other files (*.md, *.html, *.tex, *.oct, *.ofig, *.png) are licensed under the <em>Creative Commons Attribution 4.0 International</em> license. See also: <a href="https://creativecommons.org/licenses/by/4.0/deed.en">CC BY-4.0</a></p>
+
+<h2>Prerequisites</h2>
+
+<p>As a prerequisite, <em>GNU Octave 6.2.0</em> (or a more recent version) need to be installed. <em>GNU Octave</em> is available via the package management system on many Linux distributions. For <em>Microsoft Windows</em> or <em>MacOS</em> users it is suggested to download the Windows or MacOS version of GNU Octave and to install the software manually. See also: <a href="https://octave.org/download">GNU Octave download</a></p>
+
+<h2>Directory and file structure</h2>
+
+<p>All GNU Octave script files (*.m) are written in the scientific programming language of <em>GNU Octave 6.2.0</em>. All LaTeX files (*.tex) are written with compliance to <em>TeXlive</em> version 2020.20210202-3. Text files (*.m, *.tex) are generally encoded in UTF-8.</p>
+
+<h3>Overview of the directory structure</h3>
+
+<p><code>
+anadd-1.0.0 <br />
+├── results <br />
+│   ├── bin <br />
+│   └── tex <br />
+├── struct <br />
+│   ├── README.html <br />
+│   ├── README.md <br />
+│   ├── struct_objattrib.m <br />
+│   ├── struct_objdata.m <br />
+│   └── struct_objref.m <br />
+├── tex <br />
+│   ├── oct2texdefs.tex <br />
+│   ├── README.html <br />
+│   ├── README.md <br />
+│   ├── tex_def_csvarray.m <br />
+│   ├── tex_def_dotarray.m <br />
+│   ├── tex_def_scalar.m <br />
+│   ├── tex_def_tabarray.m <br />
+│   ├── tex_def_tabmatrix.m <br />
+│   ├── tex_serialize.m <br />
+│   ├── tex_settings.m <br />
+│   ├── tex_struct_export.m <br />
+│   ├── tex_struct.m <br />
+│   ├── tex_struct_objattrib.m <br />
+│   ├── tex_struct_objdata.m <br />
+│   └── tex_struct_objref.m <br />
+├── anadd_analyse.m <br />
+├── anadd_dsdefs.m <br />
+├── anadd_init.m <br />
+├── anadd_param.m <br />
+├── LICENSE <br />
+├── README.html <br />
+└── README.md
+</code></p>
+
+<h3>Brief description of files and folders</h3>
+
+<ul>
+<li><strong>anadd-1.0.0</strong> ... main program directory
+<ul>
+<li><em>anadd_analyse.m</em> ... function file, analysis procedure (MIT license)</li>
+<li><em>anadd_dsdefs.m</em> ... function file, data set information and organization (MIT license)</li>
+<li><em>anadd_init.m</em> ... function file, program initialization (MIT license)</li>
+<li><em>anadd_param.m</em> ... function file, analysis parameter definitions (MIT license)</li>
+<li><em>LICENSE</em> ... license information file for "the MIT license"</li>
+<li><em>README.html</em> ... file, HTML version of <em>./README.md</em></li>
+<li><em>README.md</em> ... this file, information about the program</li>
+</ul></li>
+<li><strong>anadd-1.0.0/results</strong> ... directory, analysis results (CC BY-4.0 license)</li>
+<li><strong>anadd-1.0.0/results/bin</strong> ... directory, binary output files, data and figures (*.oct, *.ofig, *.png)</li>
+<li><strong>anadd-1.0.0/results/tex</strong> ... directory, LaTeX code files, data (*.tex)</li>
+<li><strong>anadd-1.0.0/struct</strong> ... directory, data structure building tools (MIT license)
+<ul>
+<li><em>README.html</em> ... file, HTML version of <em>./struct/README.md</em></li>
+<li><em>README.txt</em> ... file, additional information about the directory content</li>
+<li><em>struct_objattrib.m</em> ... function file, create attribute object (atomic attribute element, AAE)</li>
+<li><em>struct_objdata.m</em> ... function file, create data object (atomic data element, ADE)</li>
+<li><em>struct_objref.m</em> ... function file, create reference object (atomic reference element, ARE)</li>
+</ul></li>
+<li><strong>anadd-1.0.0/tex</strong> ... directory, data structure TeX file export tools (MIT license)
+<ul>
+<li><em>oct2texdefs.tex</em> ... file, LaTeX commands to use the data exported from GNU Octave data structures</li>
+<li><em>README.html</em> ... file, HTML version of <em>./tex/README.md</em></li>
+<li><em>README.md</em> ... file, additional information about the directory content</li>
+<li><em>tex_def_csvarray.m</em> ... function file, serialize array variable to TeX code (comma-separated list, e.g. version numbers)</li>
+<li><em>tex_def_dotarray.m</em> ... function file, serialize short array variable to TeX code (dot-separated list, e.g. structure path)</li>
+<li><em>tex_def_scalar.m</em> ... function file, serialize scalar value to TeX-code</li>
+<li><em>tex_def_tabarray.m</em> ... function file, serialize array value to TeX-code (tabulated)</li>
+<li><em>tex_def_tabmatrix.m</em> ... function file, serialize matrix value to TeX code (tabulated)</li>
+<li><em>tex_serialize.m</em> ... function file, serialize single value of various data types</li>
+<li><em>tex_settings.m</em> ... function file, create data structure containing the TeX-code serialization settings</li>
+<li><em>tex_struct_export.m</em> ... function file, export data structure(s) to TeX-code files</li>
+<li><em>tex_struct.m</em> ... function file, serialize data structure(s) to TeX-code</li>
+<li><em>tex_struct_objattrib.m</em> ... function file, serialize atomic attribute element to TeX-code</li>
+<li><em>tex_struct_objdata.m</em> ... function file, serialize atomic data element to TeX-code</li>
+<li><em>tex_struct_objref.m</em> ... function file, serialize atomic reference element to TeX-code</li>
+</ul></li>
+</ul>
+
+<h2>Installation instructions</h2>
+
+<h3>Data set installation</h3>
+
+<ol>
+<li>Download the dataset records (see section <strong>Related data sources</strong>) from the repository and move them to a directory of your choice. e.g. <strong>/home/acme/science/data/*_dataset.tar.xz</strong></li>
+<li>Extract datasets from the TAR archives using <em>GNU tar</em>. For <em>Microsoft Windows</em> users it is suggested to use <em>7-zip</em> instead.</li>
+</ol>
+
+<p><code>
+bash: $ tar -xzf ts1_datasets.tar.xz
+</code></p>
+
+<p>The expected outcome is to have all datasets (*.oct files) in the directories of the respective test series.</p>
+
+<p><code>
+home <br />
+└── acme <br />
+    └── science <br />
+        └── data <br />
+            ├── ts5_dataset <br />
+            │   └── *.oct <br />
+            ├── ts6_dataset <br />
+            │   └── *.oct <br />
+            └── ts7_dataset <br />
+                └── *.oct
+</code></p>
+
+<blockquote>
+  <p>[!NOTE]
+<em>7-zip</em> is available online. <a href="https://www.7-zip.org/download.html">7-zip download</a></p>
+</blockquote>
+
+<h3>Analysis script installation</h3>
+
+<ol>
+<li>Download the record containing the analysis code from the repository and move it to a directory of your choice. e.g. <strong>/home/acme/science</strong>   </li>
+<li>Decompress analysis code from the ZIP archive <strong>anadd-1.0.0.zip</strong>. e.g. <strong>/home/acme/science/anadd-1.0.0</strong>   </li>
+<li>Run GNU Octave.   </li>
+<li>Make the program directory <strong>/home/acme/science/anadd-1.0.0</strong> the working directory.   </li>
+<li>Adjust the variables 'r_ds.paths.dssrc', 'r_ds.paths.ts5oct', 'r_ds.paths.ts6oct' and 'r_ds.paths.ts7oct' in function file <strong>/home/acme/science/anadd-1.0.0_param.m</strong>. They have to point to the actual location of the folders containing the previously extracted datasets (*.oct) of the respective test series.    </li>
+</ol>
+
+<p><code>
+    anadd_param.m:  ... <br />
+    anadd_param.m:  r_ds.paths.dssrc = '/home/acme/data'; # data source path <br />
+    anadd_param.m:  r_ds.paths.ts5oct = 'ts5_dataset'; # test series 5 dataset directory <br />
+    anadd_param.m:  r_ds.paths.ts6oct = 'ts6_dataset'; # test series 6 dataset directory <br />
+    anadd_param.m:  r_ds.paths.ts7oct = 'ts7_dataset'; # test series 7 dataset directory <br />
+    anadd_param.m:  ...
+</code></p>
+
+<h2>Usage instructions</h2>
+
+<ol>
+<li>Open GNU Octave.   </li>
+<li>Initialize program.   </li>
+<li>Run analysis.   </li>
+</ol>
+
+<h3>Initialize program (command line interface)</h3>
+
+<p>The <em>anadd_init</em> function initializes the program. The initialization must be run once before executing all the other functions. The command is adding the subdirectories included in the main program directory to the 'path' environment variable. This function also creates the analysis result output directory <em>./results</em> and the subdirectories <em>bin</em> and <em>tex</em>.</p>
+
+<p><code>
+    octave: &gt;&gt; anadd_init();
+</code></p>
+
+<h3>Run analysis (command line interface)</h3>
+
+<p>The <em>anadd_analyse</em> function compiles the analysis results and writes them to the aforementioned result directory. This function also plots the analysis results and displays them on the screen.</p>
+
+<p><code>
+    octave: &gt;&gt; anadd_analyse();
+</code></p>
+
+<h2>Help and Documentation</h2>
+
+<p>All function files contain an adequate function description and instructions on how to use the functions. The documentation can be displayed in the GNU Octave command line interface by entering the following command:</p>
+
+<p><code>
+    octave: &gt;&gt; help function_file_name;
+</code></p>
+
+<h2>Related data sources</h2>
+
+<p>Datasets whos content can be analyzed and plotted with this scripts are made available at the repository of <em>Graz University of Technology</em> under the <em>Creative Commons Attribution 4.0 International</em> license. The data records enlisted below contain the raw data, the compiled datasets and a technical description of the record content.</p>
+
+<h3>Data records</h3>
+
+<ul>
+<li>Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 1, Cement Paste at Early Stages". Graz University of Technology. doi: <a href="https://doi.org/10.3217/bhs4g-m3z76">10.3217/bhs4g-m3z76</a>   </li>
+<li>Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 5, Reference Tests on Air". Graz University of Technology. doi: <a href="https://doi.org/10.3217/bjkrj-pg829">10.3217/bjkrj-pg829</a>   </li>
+<li>Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 6, Reference Tests on Water". Graz University of Technology. doi: <a href="https://doi.org/10.3217/hn7we-q7z09">10.3217/hn7we-q7z09</a>   </li>
+<li>Harden, J. (2025) "Ultrasonic Pulse Transmission Tests: Datasets - Test Series 7, Reference Tests on Aluminium Cylinder (1.1)". Graz University of Technology. doi: <a href="https://doi.org/10.3217/w3mb5-1wx17">10.3217/w3mb5-1wx17</a>   </li>
+</ul>
+
+<h2>Related software</h2>
+
+<h3>Dataset Compiler, version 1.2:</h3>
+
+<p>The referenced datasets are compiled from raw data using a dataset compilation tool implemented in the programming language of <em>GNU Octave 6.2.0</em>. To understand the structure of the datasets, it is a good idea to look at the source code of that tool. Therefore, it was made publicly available under the <em>MIT</em> license at the repository of <em>Graz University of Technology</em>.</p>
+
+<ul>
+<li><p>Harden, J. (2025) "Ultrasonic Pulse Transmission Tests: Data set compiler (1.2)". Graz University of Technology. doi: <a href="https://doi.org/10.3217/bcydt-6ta35">10.3217/bcydt-6ta35</a></p>
+
+<blockquote>
+  <p>[!NOTE]
+<em>Dataset Compiler</em> is also available on <strong>GitHub</strong>. <a href="https://github.com/jakobharden/phd_dataset_compiler">Dataset Compiler</a></p>
+</blockquote></li>
+</ul>
+
+<h3>Dataset Exporter, version 1.1:</h3>
+
+<p><em>Dataset Exporter</em> is implemented in the programming language of GNU Octave 6.2.0 and allows for exporting data contained in the datasets. The main features of that script collection cover the export of substructures to variables and the serialization to the CSV format, the JSON structure format and TeX code. It is also made publicly available under the <em>MIT</em> licence at the repository of <em>Graz University of Technology</em>.</p>
+
+<ul>
+<li><p>Harden, J. (2025) "Ultrasonic Pulse Transmission Tests: Dataset Exporter (1.1)". Graz University of Technology. doi: <a href="https://doi.org/10.3217/d3p6m-w7d64">10.3217/d3p6m-w7d64</a></p>
+
+<blockquote>
+  <p>[!NOTE]
+<em>Dataset Exporter</em> is also available on <strong>GitHub</strong>. <a href="https://github.com/jakobharden/phd_dataset_exporter">Dataset Exporter</a></p>
+</blockquote></li>
+</ul>
+
+<h3>Dataset Viewer, version 1.0:</h3>
+
+<p><em>Dataset Viewer</em> is implemented in the programming language of GNU Octave 6.2.0 and allows for plotting measurement data contained in the datasets. The main features of that script collection cover 2D plots, 3D plots and rendering MP4 video files from the measurement data contained in the datasets. It is also made publicly available under the <em>MIT</em> licence at the repository of <em>Graz University of Technology</em>.</p>
+
+<ul>
+<li><p>Harden, J. (2023) "Ultrasonic Pulse Transmission Tests: Dataset Viewer (1.0)". Graz University of Technology. doi: <a href="https://doi.org/10.3217/c1ccn-8m982">10.3217/c1ccn-8m982</a></p>
+
+<blockquote>
+  <p>[!NOTE]
+<em>Dataset Viewer</em> is also available on <strong>GitHub</strong>. <a href="https://github.com/jakobharden/phd_dataset_viewer">Dataset Viewer</a></p>
+</blockquote></li>
+</ul>
+
+<h2>Revision and release history</h2>
+
+<h3>2025-03-07, version 1.0.0</h3>
+
+<ul>
+<li>published/released version 1.0.0, by Jakob Harden   </li>
+<li>repository: <a href="https://repository.tugraz.at/">TU Graz Repository</a>   </li>
+<li>doi: <a href="https://doi.org/10.3217/xmrmb-5ap42">10.3217/xmrmb-5ap42</a>   </li>
+<li>GitHub: <a href="https://github.com/jakobharden/phd_paper_1_analysis">Repository</a></li>
+</ul>
